@@ -17,416 +17,168 @@
       --card-border: rgba(0, 255, 204, 0.3);
       --neon-glow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 255, 204, 0.5);
     }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      color: var(--text); line-height: 1.6; min-height: 100vh; position: relative; overflow-x: hidden;
     }
-    
     body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
+      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background:
         radial-gradient(circle at 10% 20%, rgba(0, 255, 204, 0.05) 0%, transparent 20%),
         radial-gradient(circle at 90% 80%, rgba(0, 204, 255, 0.05) 0%, transparent 20%);
       z-index: -1;
     }
-    
     /* Animación de partículas */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
-    
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: float 15s infinite linear;
-      opacity: 0.5;
-    }
-    
+    .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+    .particle { position: absolute; width: 2px; height: 2px; background: var(--accent); border-radius: 50%; animation: float 15s infinite linear; opacity: 0.5; }
     @keyframes float {
-      0% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.5;
-      }
-      90% {
-        opacity: 0.3;
-      }
-      100% {
-        transform: translateY(-100vh) translateX(20vw);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 0.5; }
+      90% { opacity: 0.3; }
+      100% { transform: translateY(-100vh) translateX(20vw); opacity: 0; }
     }
-    
     header {
       background: linear-gradient(to right, #111, #000);
-      text-align: center;
-      padding: 3rem 2rem;
-      position: relative;
-      box-shadow: 0 4px 30px rgba(0, 255, 204, 0.2);
-      border-bottom: 1px solid var(--accent);
+      text-align: center; padding: 3rem 2rem; position: relative;
+      box-shadow: 0 4px 30px rgba(0, 255, 204, 0.2); border-bottom: 1px solid var(--accent);
     }
-    
-    .header-content {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
+    .header-content { max-width: 900px; margin: 0 auto; position: relative; }
+    .lang-switcher { position:absolute; top:12px; right:12px; }
+    .lang-switcher select {
+      background:#000; color:#0ff; border:1px solid rgba(0,255,204,.4);
+      padding:.4rem .6rem; border-radius:8px; cursor:pointer;
     }
-    
     .logo-container {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 1.5rem;
+      width: 120px; height: 120px; margin: 0 auto 1.5rem;
       background: linear-gradient(135deg, var(--accent), var(--highlight));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--neon-glow);
-      animation: pulse 3s infinite;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--neon-glow); animation: pulse 3s infinite;
     }
-    
-    .logo-container::before {
-      content: "🏦";
-      font-size: 4rem;
-    }
-    
+    .logo-container::before { content: "🏦"; font-size: 4rem; }
     @keyframes pulse {
-      0% {
-        box-shadow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 255, 204, 0.5);
-      }
-      50% {
-        box-shadow: 0 0 20px rgba(0, 255, 204, 0.9), 0 0 40px rgba(0, 255, 204, 0.7);
-      }
-      100% {
-        box-shadow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 255, 204, 0.5);
-      }
+      0% { box-shadow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 255, 204, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(0, 255, 204, 0.9), 0 0 40px rgba(0, 255, 204, 0.7); }
+      100% { box-shadow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 255, 204, 0.5); }
     }
-    
     h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
+      font-size: 3.5rem; margin-bottom: 1rem;
       background: linear-gradient(to right, var(--accent), var(--highlight));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: 1px;
-      text-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      letter-spacing: 1px; text-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
     }
-    
-    header p {
-      font-size: 1.4rem;
-      max-width: 700px;
-      margin: 0 auto;
-      color: #aaa;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-      position: relative;
-    }
-    
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
+    header p { font-size: 1.4rem; max-width: 700px; margin: 0 auto; color: #aaa; }
+    .container { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; position: relative; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
     .card {
-      background: var(--card-bg);
-      border-radius: 15px;
-      padding: 2.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--card-border);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
+      background: var(--card-bg); border-radius: 15px; padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); border: 1px solid var(--card-border);
+      transition: all 0.4s ease; position: relative; overflow: hidden; backdrop-filter: blur(10px);
     }
-    
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 255, 204, 0.3);
-      border-color: var(--accent);
-    }
-    
+    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0, 255, 204, 0.3); border-color: var(--accent); }
     .card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
+      content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
-      transform: rotate(30deg);
-      z-index: 0;
+      transform: rotate(30deg); z-index: 0;
     }
-    
-    .card-content {
-      position: relative;
-      z-index: 1;
-    }
-    
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--accent);
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    
+    .card-content { position: relative; z-index: 1; }
+    h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--accent); position: relative; padding-bottom: 0.5rem; }
     h2::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(to right, var(--accent), var(--highlight));
-      border-radius: 3px;
+      content: ""; position: absolute; bottom: 0; left: 0; width: 80px; height: 3px;
+      background: linear-gradient(to right, var(--accent), var(--highlight)); border-radius: 3px;
     }
-    
-    p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-    
-    ul {
-      padding-left: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    
-    li {
-      margin-bottom: 1rem;
-      position: relative;
-      padding-left: 1.8rem;
-      font-size: 1.1rem;
-    }
-    
-    li::before {
-      content: "✓";
-      color: var(--accent);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: 1.2rem;
-    }
-    
-    .btn-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
+    p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.7; }
+    ul { padding-left: 1.5rem; margin: 1.5rem 0; }
+    li { margin-bottom: 1rem; position: relative; padding-left: 1.8rem; font-size: 1.1rem; }
+    li::before { content: "✓"; color: var(--accent); font-weight: bold; position: absolute; left: 0; top: 0; font-size: 1.2rem; }
+    .btn-container { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
     .btn {
-      background: linear-gradient(45deg, var(--accent), var(--highlight));
-      color: #000;
-      padding: 0.9rem 2rem;
-      border: none;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      display: inline-block;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 255, 204, 0.4);
-      text-align: center;
-      text-decoration: none;
-      flex: 1;
-      min-width: 200px;
+      background: linear-gradient(45deg, var(--accent), var(--highlight)); color: #000;
+      padding: 0.9rem 2rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold;
+      display: inline-block; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0, 255, 204, 0.4);
+      text-align: center; text-decoration: none; flex: 1; min-width: 200px;
     }
-    
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 255, 204, 0.6);
-      background: linear-gradient(45deg, var(--accent-dark), var(--highlight));
-    }
-    
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    
-    .feature-item {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 1.5rem;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 255, 204, 0.2);
-      transition: all 0.3s ease;
-    }
-    
-    .feature-item:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent);
-      box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
-    }
-    
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-    
-    .feature-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-    
-    .contact-card {
-      text-align: center;
-      padding: 3rem;
-    }
-    
-    footer {
-      text-align: center;
-      padding: 3rem 2rem;
-      background: rgba(0, 0, 0, 0.7);
-      margin-top: 4rem;
-      border-top: 1px solid var(--accent);
-    }
-    
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 255, 204, 0.6); background: linear-gradient(45deg, var(--accent-dark), var(--highlight)); }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .feature-item { background: rgba(0, 0, 0, 0.3); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(0, 255, 204, 0.2); transition: all 0.3s ease; }
+    .feature-item:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3); }
+    .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent); }
+    .feature-title { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--accent); }
+    .contact-card { text-align: center; padding: 3rem; }
+    footer { text-align: center; padding: 3rem 2rem; background: rgba(0, 0, 0, 0.7); margin-top: 4rem; border-top: 1px solid var(--accent); }
     .footer-logo {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem;
+      width: 80px; height: 80px; margin: 0 auto 1.5rem;
       background: linear-gradient(135deg, var(--accent), var(--highlight));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--neon-glow);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--neon-glow);
     }
-    
-    .footer-logo::before {
-      content: "🏦";
-      font-size: 2.5rem;
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    
+    .footer-logo::before { content: "🏦"; font-size: 2.5rem; }
+    .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
     .social-link {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(0, 255, 204, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
+      width: 50px; height: 50px; border-radius: 50%; background: rgba(0, 255, 204, 0.1);
+      display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.5rem;
+      transition: all 0.3s ease; text-decoration: none;
     }
-    
-    .social-link:hover {
-      background: var(--accent);
-      color: #000;
-      transform: translateY(-5px);
-      box-shadow: var(--neon-glow);
-    }
-    
+    .social-link:hover { background: var(--accent); color: #000; transform: translateY(-5px); box-shadow: var(--neon-glow); }
     @media (max-width: 768px) {
-      .container {
-        padding: 0 1rem;
-      }
-      
-      .card {
-        padding: 1.8rem;
-      }
-      
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      .btn {
-        min-width: 100%;
-      }
+      .container { padding: 0 1rem; }
+      .card { padding: 1.8rem; }
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+      .btn { min-width: 100%; }
     }
   </style>
 </head>
 <body>
   <!-- Partículas animadas -->
   <div class="particles" id="particles"></div>
-  
+
   <header>
     <div class="header-content">
+      <!-- Selector de idioma -->
+      <div class="lang-switcher">
+        <select id="langSwitcher" aria-label="Language">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="ru">RU</option>
+        </select>
+      </div>
+
       <div class="logo-container"></div>
       <h1>CryptoBank 2.0</h1>
-      <p>Una revolución financiera libre, segura, anónima y sin límites</p>
+      <p data-i18n="subtitle">Una revolución financiera libre, segura, anónima y sin límites</p>
     </div>
   </header>
 
   <div class="container">
     <div class="card">
       <div class="card-content">
-        <h2>¿Qué es CryptoBank 2.0?</h2>
-        <p>CryptoBank 2.0 no es solo una wallet, es tu banco descentralizado de próxima generación. Compatible con BNB, ETH, ADA, SOL, BTC, POL y BANK2.0. Control total sin intermediarios. Privacidad absoluta. Ideal para holders visionarios que piensan a 10 años. ¡La libertad financiera empieza aquí!</p>
-        
+        <h2 data-i18n="whatIsTitle">¿Qué es CryptoBank 2.0?</h2>
+        <p data-i18n="whatIsText">
+          CryptoBank 2.0 no es solo una wallet, es tu banco descentralizado de próxima generación. Compatible con BNB, ETH, ADA, SOL, BTC, POL y BANK2.0. Control total sin intermediarios. Privacidad absoluta. Ideal para holders visionarios que piensan a 10 años. ¡La libertad financiera empieza aquí!
+        </p>
+
         <div class="feature-grid">
           <div class="feature-item">
             <div class="feature-icon">🔐</div>
-            <div class="feature-title">Seguridad Avanzada</div>
-            <p>Protección de nivel bancario con cifrado extremo para tus activos</p>
+            <div class="feature-title" data-i18n="feat1Title">Seguridad Avanzada</div>
+            <p data-i18n="feat1Text">Protección de nivel bancario con cifrado extremo para tus activos</p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🌐</div>
-            <div class="feature-title">Sin Fronteras</div>
-            <p>Accede a tu banco desde cualquier lugar del mundo, sin restricciones</p>
+            <div class="feature-title" data-i18n="feat2Title">Sin Fronteras</div>
+            <p data-i18n="feat2Text">Accede a tu banco desde cualquier lugar del mundo, sin restricciones</p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">💱</div>
-            <div class="feature-title">Multi-Token</div>
-            <p>Soporte completo para las principales criptomonedas y tokens</p>
+            <div class="feature-title" data-i18n="feat3Title">Multi-Token</div>
+            <p data-i18n="feat3Text">Soporte completo para las principales criptomonedas y tokens</p>
           </div>
           <div class="feature-item">
             <div class="feature-icon">🔄</div>
-            <div class="feature-title">Sin Intermediarios</div>
-            <p>Tú controlas tus activos directamente, sin terceros de confianza</p>
+            <div class="feature-title" data-i18n="feat4Title">Sin Intermediarios</div>
+            <p data-i18n="feat4Text">Tú controlas tus activos directamente, sin terceros de confianza</p>
           </div>
         </div>
       </div>
@@ -435,56 +187,58 @@
     <div class="card-grid">
       <div class="card">
         <div class="card-content">
-          <h2>Funciones clave</h2>
+          <h2 data-i18n="featuresTitle">Funciones clave</h2>
           <ul>
-            <li>Wallet multi-token con soporte completo</li>
-            <li>Gráficos en tiempo real para no perder ni un tick</li>
-            <li>Staking con recompensas automáticas</li>
-            <li>Recompensas por juego y participación</li>
-            <li>Galería NFT con subastas en directo</li>
-            <li>Disponible en 4 idiomas</li>
-            <li>Seguridad avanzada y cifrado extremo</li>
-            <li>Todo sin dar explicaciones. Libre, anónimo y resistente al sistema</li>
+            <li data-i18n="f1">Wallet multi-token con soporte completo</li>
+            <li data-i18n="f2">Gráficos en tiempo real para no perder ni un tick</li>
+            <li data-i18n="f3">Staking con recompensas automáticas</li>
+            <li data-i18n="f4">Recompensas por juego y participación</li>
+            <li data-i18n="f5">Galería NFT con subastas en directo</li>
+            <li data-i18n="f6">Disponible en 4 idiomas</li>
+            <li data-i18n="f7">Seguridad avanzada y cifrado extremo</li>
+            <li data-i18n="f8">Todo sin dar explicaciones. Libre, anónimo y resistente al sistema</li>
           </ul>
         </div>
       </div>
 
       <div class="card">
         <div class="card-content">
-          <h2>Tu futuro empieza hoy</h2>
-          <p>CryptoBank 2.0 es más que una app. Es una declaración: tú decides tu dinero, tu identidad, y tu destino. Sin bancos, sin censura, sin fronteras. Perfecto para holders decididos a hacerse ricos con visión a largo plazo.</p>
-          
+          <h2 data-i18n="futureTitle">Tu futuro empieza hoy</h2>
+          <p data-i18n="futureP1">
+            CryptoBank 2.0 es más que una app. Es una declaración: tú decides tu dinero, tu identidad, y tu destino. Sin bancos, sin censura, sin fronteras. Perfecto para holders decididos a hacerse ricos con visión a largo plazo.
+          </p>
+
           <div class="img-container" style="margin: 1.5rem 0; text-align: center;">
             <div style="font-size: 5rem; margin-bottom: 1rem;">📈</div>
-            <p style="font-style: italic; color: var(--accent);">"La verdadera libertad financiera está en tus manos"</p>
+            <p style="font-style: italic; color: var(--accent);" data-i18n="quote">"La verdadera libertad financiera está en tus manos"</p>
           </div>
-          
-          <p>Únete a miles de usuarios que ya han tomado el control de su futuro financiero con CryptoBank 2.0. La revolución descentralizada está aquí y ahora.</p>
+
+          <p data-i18n="futureP2">Únete a miles de usuarios que ya han tomado el control de su futuro financiero con CryptoBank 2.0. La revolución descentralizada está aquí y ahora.</p>
         </div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-content">
-        <h2>Únete a la revolución</h2>
-        <p>Accede a nuestro ecosistema, staking, NFTs y más. CryptoBank 2.0 es la puerta de entrada a la nueva economía descentralizada donde tú tienes el control absoluto.</p>
-        
+        <h2 data-i18n="joinTitle">Únete a la revolución</h2>
+        <p data-i18n="joinP">Accede a nuestro ecosistema, staking, NFTs y más. CryptoBank 2.0 es la puerta de entrada a la nueva economía descentralizada donde tú tienes el control absoluto.</p>
+
         <div class="btn-container">
-          <a class="btn" href="https://bank20.io" target="_blank">Visita el sitio oficial</a>
-          <a class="btn" href="https://github.com/MaxStudiotoken/assets" target="_blank">Ver en GitHub</a>
-          <a class="btn" href="#" style="background: linear-gradient(45deg, #ff00cc, #cc00ff);">Descargar App</a>
+          <a class="btn" href="https://bank20.io" target="_blank" data-i18n="btnOfficial">Visita el sitio oficial</a>
+          <a class="btn" href="https://github.com/MaxStudiotoken/assets" target="_blank" data-i18n="btnGithub">Ver en GitHub</a>
+          <a class="btn" href="#" style="background: linear-gradient(45deg, #ff00cc, #cc00ff);" data-i18n="btnDownload">Descargar App</a>
         </div>
       </div>
     </div>
 
     <div class="card contact-card">
       <div class="card-content">
-        <h2>Contacto</h2>
-        <p>¿Tienes preguntas o necesitas soporte? Nuestro equipo está listo para ayudarte en tu viaje hacia la libertad financiera.</p>
-        
+        <h2 data-i18n="contactTitle">Contacto</h2>
+        <p data-i18n="contactP">¿Tienes preguntas o necesitas soporte? Nuestro equipo está listo para ayudarte en tu viaje hacia la libertad financiera.</p>
+
         <div class="btn-container" style="justify-content: center; margin-top: 2rem;">
           <a href="mailto:bank20token@proton.me" class="btn">bank20token@proton.me</a>
-          <a href="https://x.com/hellofiti" class="btn" style="background: linear-gradient(45deg, #1da1f2, #0d8bd9);">Síguenos en X</a>
+          <a href="https://x.com/hellofiti" class="btn" style="background: linear-gradient(45deg, #1da1f2, #0d8bd9);" data-i18n="btnFollowX">Síguenos en X</a>
         </div>
       </div>
     </div>
@@ -492,9 +246,9 @@
 
   <footer>
     <div class="footer-logo"></div>
-    <p>© 2025 CryptoBank 2.0 - Tu libertad financiera. Todos los derechos reservados.</p>
-    <p>Revolucionando las finanzas descentralizadas para un mundo sin fronteras</p>
-    
+    <p data-i18n="foot1">© 2025 CryptoBank 2.0 - Tu libertad financiera. Todos los derechos reservados.</p>
+    <p data-i18n="foot2">Revolucionando las finanzas descentralizadas para un mundo sin fronteras</p>
+
     <div class="social-links">
       <a href="#" class="social-link">📱</a>
       <a href="#" class="social-link">💬</a>
@@ -502,47 +256,207 @@
       <a href="#" class="social-link">👥</a>
     </div>
   </footer>
-  
+
   <script>
-    // Crear partículas animadas
-    document.addEventListener('DOMContentLoaded', function() {
+    /* ===== Diccionario de traducciones ===== */
+    const MSG = {
+      es: {
+        subtitle: "Una revolución financiera libre, segura, anónima y sin límites",
+        whatIsTitle: "¿Qué es CryptoBank 2.0?",
+        whatIsText: "CryptoBank 2.0 no es solo una wallet, es tu banco descentralizado de próxima generación. Compatible con BNB, ETH, ADA, SOL, BTC, POL y BANK2.0. Control total sin intermediarios. Privacidad absoluta. Ideal para holders visionarios que piensan a 10 años. ¡La libertad financiera empieza aquí!",
+        feat1Title: "Seguridad Avanzada",
+        feat1Text: "Protección de nivel bancario con cifrado extremo para tus activos",
+        feat2Title: "Sin Fronteras",
+        feat2Text: "Accede a tu banco desde cualquier lugar del mundo, sin restricciones",
+        feat3Title: "Multi-Token",
+        feat3Text: "Soporte completo para las principales criptomonedas y tokens",
+        feat4Title: "Sin Intermediarios",
+        feat4Text: "Tú controlas tus activos directamente, sin terceros de confianza",
+        featuresTitle: "Funciones clave",
+        f1: "Wallet multi-token con soporte completo",
+        f2: "Gráficos en tiempo real para no perder ni un tick",
+        f3: "Staking con recompensas automáticas",
+        f4: "Recompensas por juego y participación",
+        f5: "Galería NFT con subastas en directo",
+        f6: "Disponible en 4 idiomas",
+        f7: "Seguridad avanzada y cifrado extremo",
+        f8: "Todo sin dar explicaciones. Libre, anónimo y resistente al sistema",
+        futureTitle: "Tu futuro empieza hoy",
+        futureP1: "CryptoBank 2.0 es más que una app. Es una declaración: tú decides tu dinero, tu identidad, y tu destino. Sin bancos, sin censura, sin fronteras. Perfecto para holders decididos a hacerse ricos con visión a largo plazo.",
+        quote: "La verdadera libertad financiera está en tus manos",
+        futureP2: "Únete a miles de usuarios que ya han tomado el control de su futuro financiero con CryptoBank 2.0. La revolución descentralizada está aquí y ahora.",
+        joinTitle: "Únete a la revolución",
+        joinP: "Accede a nuestro ecosistema, staking, NFTs y más. CryptoBank 2.0 es la puerta de entrada a la nueva economía descentralizada donde tú tienes el control absoluto.",
+        btnOfficial: "Visita el sitio oficial",
+        btnGithub: "Ver en GitHub",
+        btnDownload: "Descargar App",
+        contactTitle: "Contacto",
+        contactP: "¿Tienes preguntas o necesitas soporte? Nuestro equipo está listo para ayudarte en tu viaje hacia la libertad financiera.",
+        btnFollowX: "Síguenos en X",
+        foot1: "© 2025 CryptoBank 2.0 - Tu libertad financiera. Todos los derechos reservados.",
+        foot2: "Revolucionando las finanzas descentralizadas para un mundo sin fronteras",
+      },
+      en: {
+        subtitle: "A free, secure, anonymous and borderless financial revolution",
+        whatIsTitle: "What is CryptoBank 2.0?",
+        whatIsText: "CryptoBank 2.0 isn’t just a wallet; it’s your next-gen decentralized bank. Compatible with BNB, ETH, ADA, SOL, BTC, POL and BANK2.0. Full control without intermediaries. Absolute privacy. Built for visionary holders thinking 10+ years ahead. Financial freedom starts here!",
+        feat1Title: "Advanced Security",
+        feat1Text: "Bank-level protection with end-to-end encryption for your assets",
+        feat2Title: "Borderless",
+        feat2Text: "Access your bank from anywhere in the world, without restrictions",
+        feat3Title: "Multi-Token",
+        feat3Text: "Full support for leading cryptocurrencies and tokens",
+        feat4Title: "No Middlemen",
+        feat4Text: "You control your assets directly, no trusted third parties",
+        featuresTitle: "Key features",
+        f1: "Multi-token wallet with full support",
+        f2: "Real-time charts so you never miss a tick",
+        f3: "Staking with automatic rewards",
+        f4: "Rewards for gaming and participation",
+        f5: "NFT gallery with live auctions",
+        f6: "Available in 4 languages",
+        f7: "Advanced security and strong encryption",
+        f8: "No explanations needed. Free, anonymous, system-resistant",
+        futureTitle: "Your future starts today",
+        futureP1: "CryptoBank 2.0 is more than an app. It’s a statement: you decide your money, identity and destiny. No banks, no censorship, no borders. Perfect for long-term holders aiming big.",
+        quote: "True financial freedom is in your hands",
+        futureP2: "Join thousands already taking control of their financial future with CryptoBank 2.0. The decentralized revolution is here and now.",
+        joinTitle: "Join the revolution",
+        joinP: "Access our ecosystem, staking, NFTs and more. CryptoBank 2.0 is your gateway to the new decentralized economy where you have absolute control.",
+        btnOfficial: "Visit official site",
+        btnGithub: "View on GitHub",
+        btnDownload: "Download App",
+        contactTitle: "Contact",
+        contactP: "Questions or need support? Our team is ready to help on your journey to financial freedom.",
+        btnFollowX: "Follow us on X",
+        foot1: "© 2025 CryptoBank 2.0 – Your financial freedom. All rights reserved.",
+        foot2: "Reimagining decentralized finance for a borderless world",
+      },
+      fr: {
+        subtitle: "Une révolution financière libre, sûre, anonyme et sans frontières",
+        whatIsTitle: "Qu’est-ce que CryptoBank 2.0 ?",
+        whatIsText: "CryptoBank 2.0 n’est pas qu’un wallet, c’est votre banque décentralisée nouvelle génération. Compatible avec BNB, ETH, ADA, SOL, BTC, POL et BANK2.0. Contrôle total sans intermédiaires. Confidentialité absolue. Idéal pour les holders visionnaires sur 10 ans. La liberté financière commence ici !",
+        feat1Title: "Sécurité avancée",
+        feat1Text: "Protection de niveau bancaire avec chiffrement de bout en bout",
+        feat2Title: "Sans frontières",
+        feat2Text: "Accédez à votre banque partout dans le monde, sans restrictions",
+        feat3Title: "Multi-Token",
+        feat3Text: "Support complet des principales cryptomonnaies et tokens",
+        feat4Title: "Sans intermédiaires",
+        feat4Text: "Vous contrôlez directement vos actifs, sans tiers de confiance",
+        featuresTitle: "Fonctions clés",
+        f1: "Wallet multi-token avec support complet",
+        f2: "Graphiques en temps réel pour ne rien manquer",
+        f3: "Staking avec récompenses automatiques",
+        f4: "Récompenses pour le jeu et la participation",
+        f5: "Galerie NFT avec enchères en direct",
+        f6: "Disponible en 4 langues",
+        f7: "Sécurité avancée et chiffrement renforcé",
+        f8: "Aucune explication requise. Libre, anonyme, résistant au système",
+        futureTitle: "Votre avenir commence aujourd’hui",
+        futureP1: "CryptoBank 2.0 est plus qu’une application. C’est une déclaration : vous décidez de votre argent, de votre identité et de votre destin. Sans banques, sans censure, sans frontières.",
+        quote: "La vraie liberté financière est entre vos mains",
+        futureP2: "Rejoignez des milliers d’utilisateurs qui ont repris le contrôle de leur avenir financier avec CryptoBank 2.0.",
+        joinTitle: "Rejoignez la révolution",
+        joinP: "Accédez à notre écosystème, au staking, aux NFTs et plus encore. CryptoBank 2.0 est la porte d’entrée de la nouvelle économie décentralisée.",
+        btnOfficial: "Site officiel",
+        btnGithub: "Voir sur GitHub",
+        btnDownload: "Télécharger l’app",
+        contactTitle: "Contact",
+        contactP: "Des questions ou besoin d’aide ? Notre équipe est prête à vous accompagner vers la liberté financière.",
+        btnFollowX: "Suivez-nous sur X",
+        foot1: "© 2025 CryptoBank 2.0 – Votre liberté financière. Tous droits réservés.",
+        foot2: "Révolutionner la finance décentralisée pour un monde sans frontières",
+      },
+      ru: {
+        subtitle: "Свободная, безопасная, анонимная и безграничная финансовая революция",
+        whatIsTitle: "Что такое CryptoBank 2.0?",
+        whatIsText: "CryptoBank 2.0 — это не просто кошелёк, это ваше децентрализованное банковское приложение нового поколения. Совместим с BNB, ETH, ADA, SOL, BTC, POL и BANK2.0. Полный контроль без посредников. Абсолютная конфиденциальность.",
+        feat1Title: "Продвинутая безопасность",
+        feat1Text: "Банковская защита и сквозное шифрование ваших активов",
+        feat2Title: "Без границ",
+        feat2Text: "Доступ из любой точки мира без ограничений",
+        feat3Title: "Мульти-токен",
+        feat3Text: "Поддержка ведущих криптовалют и токенов",
+        feat4Title: "Без посредников",
+        feat4Text: "Вы управляете активами напрямую, без третьих лиц",
+        featuresTitle: "Ключевые функции",
+        f1: "Мультивалютный кошелёк с полной поддержкой",
+        f2: "Графики в реальном времени",
+        f3: "Стейкинг с авто-наградами",
+        f4: "Награды за игру и активность",
+        f5: "NFT-галерея с живыми аукционами",
+        f6: "Доступно на 4 языках",
+        f7: "Продвинутая безопасность и шифрование",
+        f8: "Свобода и анонимность. Устойчивость к цензуре",
+        futureTitle: "Твоё будущее начинается сегодня",
+        futureP1: "CryptoBank 2.0 — это заявление: ты решаешь свои финансы и судьбу. Без банков, цензуры и границ.",
+        quote: "Истинная финансовая свобода — в твоих руках",
+        futureP2: "Присоединяйся к тысячам пользователей, уже взявших контроль над своим будущим.",
+        joinTitle: "Присоединяйся к революции",
+        joinP: "Вход в экосистему: стейкинг, NFT и многое другое. Полный контроль у тебя.",
+        btnOfficial: "Официальный сайт",
+        btnGithub: "Смотреть на GitHub",
+        btnDownload: "Скачать приложение",
+        contactTitle: "Контакты",
+        contactP: "Вопросы или нужна помощь? Мы готовы помочь на пути к финансовой свободе.",
+        btnFollowX: "Подписаться в X",
+        foot1: "© 2025 CryptoBank 2.0 – Твоя финансовая свобода. Все права защищены.",
+        foot2: "Революция DeFi для мира без границ",
+      }
+    };
+
+    /* ===== Aplicar idioma a los elementos con data-i18n ===== */
+    function applyLang(lang) {
+      const dict = MSG[lang] || MSG.es;
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+      localStorage.setItem('cb_lang', lang);
+    }
+
+    /* ===== Inicializar: idioma + partículas + hover ===== */
+    document.addEventListener('DOMContentLoaded', function () {
+      // Idioma inicial: localStorage -> navegador -> ES
+      const saved = localStorage.getItem('cb_lang');
+      const nav = (navigator.language || 'es').slice(0,2);
+      const initial = saved || (['es','en','fr','ru'].includes(nav) ? nav : 'es');
+      const select = document.getElementById('langSwitcher');
+      if (select) {
+        select.value = initial;
+        select.addEventListener('change', e => applyLang(e.target.value));
+      }
+      applyLang(initial);
+
+      // Partículas
       const particlesContainer = document.getElementById('particles');
       const particleCount = 50;
-      
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-        
-        // Posición aleatoria
         const posX = Math.random() * 100;
         const posY = Math.random() * 100;
         particle.style.left = `${posX}%`;
         particle.style.top = `${posY}%`;
-        
-        // Tamaño aleatorio
         const size = Math.random() * 3 + 1;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-        
-        // Duración de animación aleatoria
         const duration = Math.random() * 20 + 10;
         particle.style.animationDuration = `${duration}s`;
-        
-        // Retraso aleatorio
         const delay = Math.random() * 5;
         particle.style.animationDelay = `${delay}s`;
-        
         particlesContainer.appendChild(particle);
       }
-      
-      // Efecto hover en tarjetas
+
+      // Hover tarjetas
       const cards = document.querySelectorAll('.card');
       cards.forEach(card => {
         card.addEventListener('mouseenter', () => {
           card.style.transform = 'translateY(-10px)';
           card.style.boxShadow = '0 15px 40px rgba(0, 255, 204, 0.3)';
         });
-        
         card.addEventListener('mouseleave', () => {
           card.style.transform = '';
           card.style.boxShadow = '';
